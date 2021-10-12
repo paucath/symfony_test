@@ -3,6 +3,7 @@
 {% block title %}Se connecter - La boutique Francaise{% endblock %}
 
 {% block content %}
+<div class="block-small">
 <form method="post">
     {% if error %}
         <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
@@ -24,19 +25,11 @@
            value="{{ csrf_token('authenticate') }}"
     >
 
-    {#
-        Uncomment this section and add a remember_me option below your firewall to activate remember me functionality.
-        See https://symfony.com/doc/current/security/remember_me.html
-
-        <div class="checkbox mb-3">
-            <label>
-                <input type="checkbox" name="_remember_me"> Remember me
-            </label>
-        </div>
-    #}
-    <hr>
-    <button class="btn btn-lg btn-primary btn-sm" type="submit">
+    <button class="btn btn-lg btn-info btn-block mt-3" type="submit">
         Se connecter
     </button>
+    <hr>
+    <p class="texte-center">Ou souhaitez vous <a href="{{ path('register') }}">créer un compte</a> ? </p>
 </form>
+</div>
 {% endblock %}
